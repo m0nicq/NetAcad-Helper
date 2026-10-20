@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>NetAcad Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m4 16 4-8 4 8 4-8 4 8M4 5v2m16 10v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="brand"><h1>NetAcad <span>Helper</span></h1><p>Your learning companion</p></div>
+        <span class="ai-badge">AI POWERED</span>
+    </header>
+
+    <main>
+        <section class="intro" aria-labelledby="introTitle">
+            <span class="eyebrow">A LITTLE CLARITY, ONE CLICK AWAY</span>
+            <h2 id="introTitle">A little more clarity<span>.</span></h2>
+            <p>Get help with the question in front of you.</p>
+            <div class="intro-art" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="spark">✦</span><span class="spark-small">✧</span></div>
+        </section>
+
+        <section class="settings card" aria-labelledby="settingsTitle">
+            <div class="section-heading"><h2 id="settingsTitle">Your AI setup</h2><span>01 / CONNECT</span></div>
+            <div class="field"><label for="provider">AI provider</label><select id="provider"></select></div>
+            <div class="field">
+                <div class="label-row"><label for="model">Model</label><a id="modelsLink" href="#" target="_blank" rel="noopener noreferrer">View models ↗</a></div>
+                <select id="model"></select>
+                <label class="sr-only" for="modelCustom">Custom model ID</label>
+                <input id="modelCustom" type="text" placeholder="Enter a custom model ID" autocomplete="off" spellcheck="false" hidden>
+            </div>
+            <div class="field">
+                <label for="apiKey">API key</label>
+                <div class="key-row">
+                    <input id="apiKey" type="password" placeholder="Paste your API key" autocomplete="off" spellcheck="false" aria-describedby="keyHint">
+                    <button id="toggleKey" class="icon-button" type="button" title="Show API key" aria-label="Show API key" aria-pressed="false">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/><path class="eye-slash" d="m4 4 16 16" stroke="currentColor" stroke-width="1.6"/></svg>
+                    </button>
+                </div>
+                <p class="field-hint" id="keyHint"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="1.5" stroke="currentColor"/><path d="M5.5 7V4.5a2.5 2.5 0 0 1 5 0V7" stroke="currentColor"/></svg>Saved locally in your browser.</p>
+            </div>
+            <div class="buttons">
+                <button id="saveSettings" class="button button-dark" type="button">Save settings</button>
+                <button id="verifySettings" class="button button-secondary" type="button"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Check connection</button>
+            </div>
+            <div id="settingsStatus" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="automation card" aria-labelledby="automationTitle">
+            <label class="toggle-row" for="autoSubmit">
+                <span class="toggle-copy"><span id="automationTitle">Auto-submit answers</span><span class="toggle-description">Submit after answers are selected.</span></span>
+                <input id="autoSubmit" type="checkbox" role="switch">
+                <span class="switch-track" aria-hidden="true"></span>
+            </label>
+        </section>
+
+        <button id="findAnswer" class="button button-primary" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 2.3 6.7L21 12l-6.7 2.3L12 21l-2.3-6.7L3 12l6.7-2.3L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Find answer</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        <p class="action-hint">Uses the question on your current tab</p>
+        <div id="status" role="status" aria-live="polite" aria-atomic="true"></div>
+    </main>
+
+    <footer><span class="footer-dot" aria-hidden="true"></span> A little help. A lot of possibility.</footer>
+    <script src="ai-providers.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

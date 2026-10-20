@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "NetAcad AI Helper",
+  "version": "1.9",
+  "description": "Automatically finds Cisco NetAcad quiz answers using Gemini, OpenAI, Claude, Grok, Groq or OpenRouter, selects them on the page and can auto-submit",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.netacad.com/*",
+        "*://*.skillsforall.com/*",
+        "*://*.cisco.com/*"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": [
+        "answer-matcher.js",
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NetAcad AI Helper — settings",
+    "default_icon": {
+      "16": "icons/netacad-autosolver.png",
+      "32": "icons/netacad-autosolver.png",
+      "48": "icons/netacad-autosolver.png",
+      "128": "icons/netacad-autosolver.png"
+    }
+  },
+  "icons": {
+    "16": "icons/netacad-autosolver.png",
+    "32": "icons/netacad-autosolver.png",
+    "48": "icons/netacad-autosolver.png",
+    "128": "icons/netacad-autosolver.png"
+  }
+}
